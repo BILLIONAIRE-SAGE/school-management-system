@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple School Management System</title>
+    <link rel="stylesheet" href="start.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Simple School Management</h1>
+            <p>Student Information & Academic Management</p>
+        </div>
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('dashboard')">Dashboard</button>
+            <button class="nav-tab" onclick="switchTab('departments')">Departments</button>
+            <button class="nav-tab" onclick="switchTab('add-student')">Add Student</button>
+            <button class="nav-tab" onclick="switchTab('find-student')">Find Student</button>
+            <button class="nav-tab" onclick="switchTab('promote-students')">Promote Students</button>
+            <button class="nav-tab" onclick="switchTab('academic-excellence')">Academic Excellence</button>
+            <button class="nav-tab" onclick="switchTab('owing-students')">Owing Students</button>
+            <button class="nav-tab" onclick="switchTab('manage-fees')">Manage Fees</button>
+        </div>
+        <div class="content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <h2 style="color: var(--accent); font-size: 1.3em; margin-bottom: 18px;">Dashboard Overview</h2>
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalStudents">0</div>
+                        <div class="stat-label">Total Students</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="studentsOwing">0</div>
+                        <div class="stat-label">Students Owing</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalOwedAmount">₵0</div>
+                        <div class="stat-label">Total Owed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="classesCount">0</div>
+                        <div class="stat-label">Active Classes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="averageGrade">0</div>
+                        <div class="stat-label">School Average</div>
+                    </div>
+                </div>
+
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <h2 style="color: var(--accent); font-size: 1.3em; margin-bottom: 18px;">Dashboard Overview</h2>
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalStudents">0</div>
+                        <div class="stat-label">Total Students</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="studentsOwing">0</div>
+                        <div class="stat-label">Students Owing</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalOwedAmount">₵0</div>
+                        <div class="stat-label">Total Owed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="classesCount">0</div>
+                        <div class="stat-label">Active Classes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="averageGrade">0</div>
+                        <div class="stat-label">School Average</div>
+                    </div>
+                </div>
+                <div class="best-students-section">
+                    <h3 style="margin-bottom: 12px; color: var(--accent); font-size: 1.1em;">Best Students - Whole School</h3>
+                    <div id="schoolBestStudents"></div>
+                </div>
+                <div class="best-students-section">
+                    <h3 style="margin-bottom: 12px; color: var(--accent); font-size: 1.1em;">Best Students by Department</h3>
+                    <div id="departmentBestStudents"></div>
+                </div>
+                <div class="best-students-section">
+                    <h3 style="margin-bottom: 12px; color: var(--accent); font-size: 1.1em;">Best Students by Class</h3>
+                    <div id="classBestStudents"></div>
+                </div>
+            </div>
+
+            <!-- Departments Tab -->
+            <div id="departments" class="tab-content">
+                <h2 style="color: var(--accent);">Departments Overview</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 18px;">
+                    <!-- ... existing department cards ... -->
+                </div>
+                <div id="departmentDetails"></div>
+                <div class="best-students-section">
+                    <h3 style="margin-bottom: 12px; color: var(--accent); font-size: 1.1em;">Best Students in Department</h3>
+                    <div id="departmentTabBestStudents"></div>
+                </div>
+            </div>
+
+            </div>
+            <!-- Departments Tab -->
+            <div id="departments" class="tab-content">
+                <h2 style="color: var(--accent);">Departments Overview</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 18px;">
+                    <div class="stat-card" style="border-left: 4px solid #FFA726;">
+                        <div style="font-size: 1.2em; font-weight: 600;">Pre-School</div>
+                        <div style="color: var(--text-light); font-size: 0.95em;">Nursery 1, Nursery 2, KG 1, KG 2</div>
+                        <div style="margin-top: 8px;">
+                            <span id="preschoolStudents" class="stat-number">0</span> <span class="stat-label">Students</span>
+                        </div>
+                        <div><span id="preschoolAverage" class="stat-label">0</span> <span class="stat-label">Avg</span></div>
+                    </div>
+                    <div class="stat-card" style="border-left: 4px solid #FFA726;">
+                        <div style="font-size: 1.2em; font-weight: 600;">Lower Primary</div>
+                        <div style="color: var(--text-light); font-size: 0.95em;">Primary 1, Primary 2, Primary 3</div>
+                        <div style="margin-top: 8px;">
+                            <span id="lowerPrimaryStudents" class="stat-number">0</span> <span class="stat-label">Students</span>
+                        </div>
+                        <div><span id="lowerPrimaryAverage" class="stat-label">0</span> <span class="stat-label">Avg</span></div>
+                    </div>
+                    <div class="stat-card" style="border-left: 4px solid #FFA726;">
+                        <div style="font-size: 1.2em; font-weight: 600;">Upper Primary</div>
+                        <div style="color: var(--text-light); font-size: 0.95em;">Primary 4, Primary 5, Primary 6</div>
+                        <div style="margin-top: 8px;">
+                            <span id="upperPrimaryStudents" class="stat-number">0</span> <span class="stat-label">Students</span>
+                        </div>
+                        <div><span id="upperPrimaryAverage" class="stat-label">0</span> <span class="stat-label">Avg</span></div>
+                    </div>
+                    <div class="stat-card" style="border-left: 4px solid #FFA726;">
+                        <div style="font-size: 1.2em; font-weight: 600;">Junior High School</div>
+                        <div style="color: var(--text-light); font-size: 0.95em;">JHS 1, JHS 2, JHS 3</div>
+                        <div style="margin-top: 8px;">
+                            <span id="jhsStudents" class="stat-number">0</span> <span class="stat-label">Students</span>
+                        </div>
+                        <div><span id="jhsAverage" class="stat-label">0</span> <span class="stat-label">Avg</span></div>
+                    </div>
+                </div>
+                <div id="departmentDetails"></div>
+                <div class="best-students-section">
+                    <h3 style="margin-bottom: 12px; color: var(--accent); font-size: 1.1em;">Best Students in Department</h3>
+                    <div id="departmentTabBestStudents"></div>
+                </div>
+            </div>
+            <!-- Add Student Tab -->
+            <div id="add-student" class="tab-content">
+                <h2 style="color: var(--accent);">Add New Student</h2>
+                <form id="studentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="studentId">Student ID *</label>
+                            <input type="text" id="studentId" name="studentId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth *</label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gender">Gender *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="currentClass">Current Class *</label>
+                            <select id="currentClass" name="currentClass" required onchange="updateDepartment()">
+                                <option value="">Select Class</option>
+                                <option value="Nursery 1">Nursery 1</option>
+                                <option value="Nursery 2">Nursery 2</option>
+                                <option value="KG 1">KG 1</option>
+                                <option value="KG 2">KG 2</option>
+                                <option value="Primary 1">Primary 1</option>
+                                <option value="Primary 2">Primary 2</option>
+                                <option value="Primary 3">Primary 3</option>
+                                <option value="Primary 4">Primary 4</option>
+                                <option value="Primary 5">Primary 5</option>
+                                <option value="Primary 6">Primary 6</option>
+                                <option value="JHS 1">JHS 1</option>
+                                <option value="JHS 2">JHS 2</option>
+                                <option value="JHS 3">JHS 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <input type="text" id="department" name="department" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="currentGrade">Current Grade (%)</label>
+                            <input type="number" id="currentGrade" name="currentGrade" min="0" max="100" step="0.1">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parentName">Parent/Guardian Name *</label>
+                            <input type="text" id="parentName" name="parentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="parentPhone">Parent/Guardian Phone *</label>
+                            <input type="tel" id="parentPhone" name="parentPhone" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parentEmail">Parent/Guardian Email</label>
+                            <input type="email" id="parentEmail" name="parentEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="emergencyContact">Emergency Contact</label>
+                            <input type="tel" id="emergencyContact" name="emergencyContact">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="2"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="termFees">Term Fees (₵) *</label>
+                            <input type="number" id="termFees" name="termFees" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paidAmount">Amount Paid (₵)</label>
+                            <input type="number" id="paidAmount" name="paidAmount" min="0" step="0.01" value="0">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Add Student</button>
+                </form>
+            </div>
+            <!-- Find Student Tab -->
+            <div id="find-student" class="tab-content">
+                <h2 style="color: var(--accent);">Find Student</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="searchTerm">Search by Name or Student ID</label>
+                        <input type="text" id="searchTerm" placeholder="Enter student name or ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="searchClass">Filter by Class</label>
+                        <select id="searchClass">
+                            <option value="">All Classes</option>
+                            <option value="Nursery 1">Nursery 1</option>
+                            <option value="Nursery 2">Nursery 2</option>
+                            <option value="KG 1">KG 1</option>
+                            <option value="KG 2">KG 2</option>
+                            <option value="Primary 1">Primary 1</option>
+                            <option value="Primary 2">Primary 2</option>
+                            <option value="Primary 3">Primary 3</option>
+                            <option value="Primary 4">Primary 4</option>
+                            <option value="Primary 5">Primary 5</option>
+                            <option value="Primary 6">Primary 6</option>
+                            <option value="JHS 1">JHS 1</option>
+                            <option value="JHS 2">JHS 2</option>
+                            <option value="JHS 3">JHS 3</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Results Table Placeholder -->
+                <table class="student-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Student ID</th>
+                            <th>Class</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="searchResults">
+                        <tr><td colspan="5" class="no-data">No students found.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Other tabs remain, but are now styled simply -->
+            <div id="promote-students" class="tab-content">
+                <h2 style="color: var(--accent);">Promote Students</h2>
+                <form id="promoteClassForm" style="margin-bottom: 18px; display: flex; gap: 12px; flex-wrap: wrap; align-items: end;">
+                    <div>
+                        <label for="promoteFromClass">Promote from:</label>
+                        <select id="promoteFromClass" required>
+                            <option value="">-- Select Class --</option>
+                            <option value="Nursery 1">Nursery 1</option>
+                            <option value="Nursery 2">Nursery 2</option>
+                            <option value="KG 1">KG 1</option>
+                            <option value="KG 2">KG 2</option>
+                            <option value="Primary 1">Primary 1</option>
+                            <option value="Primary 2">Primary 2</option>
+                            <option value="Primary 3">Primary 3</option>
+                            <option value="Primary 4">Primary 4</option>
+                            <option value="Primary 5">Primary 5</option>
+                            <option value="Primary 6">Primary 6</option>
+                            <option value="JHS 1">JHS 1</option>
+                            <option value="JHS 2">JHS 2</option>
+                            <option value="JHS 3">JHS 3</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="promoteToClass">Promote to:</label>
+                        <select id="promoteToClass" required>
+                            <option value="">-- Select Next Class --</option>
+                            <!-- Options will be populated by JS -->
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Load Students</button>
+                </form>
+                <div id="promoteStudentsSection">
+                    <!-- Students table and promote button will be rendered here by JS -->
+                </div>
+                <div id="failedStudentsSection" style="margin-top: 18px;">
+                    <!-- Failed students will be shown here after promotion -->
+                </div>
+            </div>
+            <div id="academic-excellence" class="tab-content">
+                <h2 style="color: var(--accent);">Academic Excellence</h2>
+                <!-- Content here -->
+            </div>
+            <div id="owing-students" class="tab-content">
+                <h2 style="color: var(--accent);">Owing Students</h2>
+                <!-- Content here -->
+            </div>
+            <div id="manage-fees" class="tab-content">
+                <h2 style="color: var(--accent);">Manage Fees</h2>
+                <!-- Content here -->
+            </div>
+        </div>
+    </div>
+    <script src="start.script.js" async></script>
+ 
+</body>
+</html>

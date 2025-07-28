@@ -1,0 +1,248 @@
+
+:root {
+    --accent: #FFA726;
+    --accent-light: #FFE0B2;
+    --bg: #FAFAFA;
+    --card-bg: #FFF;
+    --border: #E0E0E0;
+    --text: #222;
+    --text-light: #888;
+}
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 900px;
+    margin: 32px auto;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: none;
+    padding: 0 0 32px 0;
+}
+.header {
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 32px 0 16px 0;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+}
+.header h1 {
+    font-size: 2em;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+.header p {
+    font-size: 1em;
+    color: var(--text-light);
+}
+.nav-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--card-bg);
+    justify-content: center;
+}
+.nav-tab {
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: var(--text-light);
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border 0.2s;
+}
+.nav-tab.active {
+    color: var(--accent);
+    border-bottom: 2.5px solid var(--accent);
+    background: none;
+}
+.content {
+    padding: 24px 16px 0 16px;
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+/* Dashboard */
+.stats-overview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.stat-card {
+    flex: 1 1 150px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 0;
+    text-align: center;
+}
+.stat-number {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--accent);
+}
+.stat-label {
+    color: var(--text-light);
+    font-size: 0.95em;
+}
+.best-students-section {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+}
+.best-student-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.student-rank {
+    background: var(--accent);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1em;
+}
+.student-info {
+    flex: 1;
+}
+.student-name {
+    font-weight: 600;
+    color: var(--text);
+}
+.student-details {
+    color: var(--text-light);
+    font-size: 0.95em;
+}
+.student-score {
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.95em;
+}
+/* Forms */
+.form-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: var(--text);
+    font-size: 0.97em;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1em;
+    background: var(--card-bg);
+    color: var(--text);
+}
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+.btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--accent);
+    color: #fff;
+    transition: background 0.2s;
+}
+.btn:hover {
+    background: #fb8c00;
+}
+/* Table */
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+.student-table th, .student-table td {
+    padding: 10px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+.student-table th {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95em;
+}
+.student-table tbody tr:hover {
+    background: var(--bg);
+}
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 600;
+    background: var(--accent-light);
+    color: var(--accent);
+}
+.alert {
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+}
+.alert-success {
+    background: #fffde7;
+    color: #388e3c;
+}
+.alert-error {
+    background: #ffebee;
+    color: #d32f2f;
+}
+.no-data {
+    text-align: center;
+    padding: 32px 0;
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 1em;
+}
+@media (max-width: 700px) {
+    .container { max-width: 100%; border-radius: 0; }
+    .content { padding: 12px 4px 0 4px; }
+    .form-row { flex-direction: column; gap: 0; }
+    .stats-overview { flex-direction: column; gap: 10px; }
+}
